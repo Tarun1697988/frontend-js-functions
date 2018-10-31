@@ -12,7 +12,6 @@ export function min (array) {
 	return numberArrray.reduce((acc, currenValue) => (acc > currenValue ? currenValue : acc));
 }
 
-
 export function max (array) {
 
 	if (!arguments.length) {
@@ -27,8 +26,6 @@ export function max (array) {
 
 	return numberArrray.reduce((acc, currenValue) => (acc < currenValue ? currenValue : acc));
 }
-
-max();
 
 export function sum (... array) {
 
