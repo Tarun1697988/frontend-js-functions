@@ -1,36 +1,30 @@
-export function min (array) {
-
-	if (!arguments.length) {
-		return;
-	}
-	let numberArrray = array.filter(number => typeof number === 'number');
-
-	if (!numberArrray.length) {
-		return;
-	}
-
-	return numberArrray.reduce((acc, currenValue) => (acc > currenValue ? currenValue : acc));
+function getMaxValue (prevValue, currentValue) {
+	return prevValue > currentValue ? prevValue : currentValue;
 }
 
-export function max (array) {
+function getMinValue (prevValue, currentValue) {
+	return prevValue < currentValue ? prevValue : currentValue;
+}
 
-	if (!arguments.length) {
-		return;
-	}
+function getSum (prevValue, currentValue) {
+	return prevValue + currentValue;
+}
 
-	let numberArrray = array.filter(number => typeof number === 'number');
 
-	if (!numberArrray.length) {
-		return;
-	}
+export function max (numbers = []) {
+	return numbers
+      .filter(number => typeof number === 'number')
+      .reduce(getMaxValue, undefined);
+}
 
-	return numberArrray.reduce((acc, currenValue) => (acc < currenValue ? currenValue : acc));
+export function min (numbers = []) {
+	return numbers
+      .filter(number => typeof number === 'number')
+      .reduce(getMinValue, undefined);
 }
 
 export function sum (... array) {
-
-	let numberArrray = array.filter(number => typeof number === 'number');
-
-	return arguments.length > 0 && numberArrray.length
-	> 0 ? numberArrray.reduce((acc, currenValue) => acc + currenValue) : 0;
+	return array
+      .filter(number => typeof number === 'number')
+      .reduce(getSum, 0);
 }
