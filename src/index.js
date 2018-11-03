@@ -10,21 +10,24 @@ function getSum (prevValue, currentValue) {
 	return prevValue + currentValue;
 }
 
+function getNumber (number) {
+	return typeof number === 'number';
+}
 
 export function max (numbers = []) {
 	return numbers
-      .filter(number => typeof number === 'number')
+      .filter(getNumber)
       .reduce(getMaxValue, undefined);
 }
 
 export function min (numbers = []) {
 	return numbers
-      .filter(number => typeof number === 'number')
+      .filter(getNumber)
       .reduce(getMinValue, undefined);
 }
 
 export function sum (... array) {
 	return array
-      .filter(number => typeof number === 'number')
+      .filter(getNumber)
       .reduce(getSum, 0);
 }
